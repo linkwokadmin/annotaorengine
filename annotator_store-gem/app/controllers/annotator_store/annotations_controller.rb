@@ -3,7 +3,10 @@ require_dependency 'annotator_store/application_controller'
 module AnnotatorStore
   class AnnotationsController < ApplicationController
     before_action :set_annotation, only: [:show, :update, :destroy]
-
+    def index
+      @annotations = AnnotatorStore::Annotation.all
+      @total = @annotations.size
+    end
     # POST /annotations
     def create
       format_client_input_to_rails_convention_for_create
