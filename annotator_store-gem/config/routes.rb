@@ -7,7 +7,7 @@ AnnotatorStore::Engine.routes.draw do
   match 'search', to: 'annotations#options', via: [:options], defaults: { format: :json }, constraints: { format: :json }
 
   # Annotations Endpoint
-  resources :annotations, only: [:index,:create, :show, :update, :destroy], defaults: { format: :json }, constraints: { format: :json } do
+resources :annotations, only: [:index,:create, :show, :update, :destroy], defaults: { format: :json }, constraints: { format: :json } do
     match '/', to: 'annotations#options', via: [:options], on: :collection
     match '/', to: 'annotations#options', via: [:options], on: :member
   end
